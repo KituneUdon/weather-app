@@ -1,8 +1,7 @@
 import { FC } from 'react';
-/** @jsxImportSource @emotion/react */
 import { SerializedStyles } from '@emotion/react';
 
-type Props = JSX.IntrinsicElements['input'] & {
+export type Props = JSX.IntrinsicElements['input'] & {
   emotionStyle?: SerializedStyles;
 };
 
