@@ -5,14 +5,17 @@ import { css } from '@emotion/react';
 type Props = {
   color?: string;
   children?: React.ReactNode;
+  centering?: boolean;
 };
 
-const Typography: FC<Props> = ({ color, children }) => {
+const Typography: FC<Props> = ({ color, children, centering }) => {
   const style = css`
     color: ${color};
   `;
 
-  return <p css={style}>{children}</p>;
+  const textCenter = centering && css({ textAlign: 'center' });
+
+  return <p css={[style, textCenter]}>{children}</p>;
 };
 
 export default Typography;

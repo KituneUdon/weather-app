@@ -30,7 +30,7 @@ const WeekdayWeatherForecastItem: FC<WeekdayWeatherForecastItemProps> = ({
 }) => (
   <div>
     <div>
-      <Typography>{date}</Typography>
+      <Typography centering>{date}</Typography>
     </div>
     <div>
       <TemperatureImage weather={weather} />
