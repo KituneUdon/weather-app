@@ -13,11 +13,11 @@ const input = css({
   flexGrow: 1,
 });
 
-const Form: FC = () => (
+const SearchForm: FC = () => (
   <form css={container}>
     <Input emotionStyle={input} type="text" />
     <Button label="検索" />
   </form>
 );
 
-export default Form;
+export default SearchForm;
