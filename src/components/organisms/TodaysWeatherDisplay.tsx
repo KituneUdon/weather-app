@@ -13,10 +13,6 @@ import Typography from '../atoms/Typography';
 
 type Weather = 'sunny' | 'rain' | 'cloudy';
 
-type Props = {
-  weather: Weather;
-};
-
 const container = css({
   display: 'flex',
 });
@@ -34,20 +30,24 @@ const switchWeatherImage = (weather: Weather) => {
   }
 };
 
-const TodaysWeatherDisplay: FC<Props> = ({ weather }) => (
-  <div css={container}>
-    <div>{switchWeatherImage(weather)}</div>
-    <div>
+const TodaysWeatherDisplay: FC = () => {
+  const weather = 'sunny';
+
+  return (
+    <div css={container}>
+      <div>{switchWeatherImage(weather)}</div>
       <div>
-        <TemperatureDisplay temperature={22} highestOrLowest="HIGHEST" />
-        <Typography>最高気温</Typography>
-      </div>
-      <div>
-        <TemperatureDisplay temperature={22} highestOrLowest="LOWEST" />
-        <Typography>最低気温</Typography>
+        <div>
+          <TemperatureDisplay temperature={22} highestOrLowest="HIGHEST" />
+          <Typography>最高気温</Typography>
+        </div>
+        <div>
+          <TemperatureDisplay temperature={22} highestOrLowest="LOWEST" />
+          <Typography>最低気温</Typography>
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default TodaysWeatherDisplay;

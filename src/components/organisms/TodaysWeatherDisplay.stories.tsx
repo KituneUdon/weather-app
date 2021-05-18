@@ -6,4 +6,4 @@ export default {
   title: 'TodaysWeatherDisplay',
 };
 
-export const Default: FC = () => <TodaysWeatherDisplay weather="sunny" />;
+export const Default: FC = () => <TodaysWeatherDisplay />;
