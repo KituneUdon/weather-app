@@ -1,10 +1,9 @@
 import { FC } from 'react';
-import { LineChart, Line } from 'recharts';
+import { LineChart, Line, XAxis, YAxis } from 'recharts';
 
 export type Data = {
-  date: string;
-  highest: number;
-  lowest: number;
+  time: string;
+  temperature: number;
 };
 
 type Props = {
@@ -12,9 +11,10 @@ type Props = {
 };
 
 const LineGraph: FC<Props> = ({ data }) => (
-  <LineChart width={400} height={400} data={data}>
-    <Line type="monotone" dataKey="highest" stroke="#FF0000" />
-    <Line type="monotone" dataKey="lowest" stroke="#0000FF" />
+  <LineChart width={500} height={500} data={data}>
+    <XAxis dataKey="time" />
+    <YAxis />
+    <Line type="monotone" dataKey="temperature" stroke="#FF0000" />
   </LineChart>
 );
 
