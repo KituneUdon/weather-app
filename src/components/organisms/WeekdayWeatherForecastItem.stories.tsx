@@ -1,13 +1,13 @@
 import { FC } from 'react';
-import WeekdayTemperatureForecastItem from './WeekdayTemperatureForecastItem';
+import WeekdayWeatherForecastItem from './WeekdayWeatherForecastItem';
 
 export default {
-  component: WeekdayTemperatureForecastItem,
+  component: WeekdayWeatherForecastItem,
   title: 'WeekdayTemperatureForecastItem',
 };
 
 export const Defualt: FC = () => (
-  <WeekdayTemperatureForecastItem
+  <WeekdayWeatherForecastItem
     date="2021/05/23"
     weather="sunny"
     lowestTemperature={22}

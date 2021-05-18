@@ -6,7 +6,7 @@ import PlaceNameInputForm from '../organisms/PlaceNameInputForm';
 import CurrentLocation from '../organisms/CurrentLocation';
 import TemperatureLineChart from '../organisms/TemperatureLineChart';
 import TodaysWeatherDisplay from '../organisms/TodaysWeatherDisplay';
-import WeekdayTemperatureForecast from '../organisms/WeekdayTemperatureForecast';
+import WeekdayWeatherForecast from '../organisms/WeekdayWeatherForecast';
 
 const container = css({
   display: 'flex',
@@ -33,7 +33,7 @@ const WeathreForecastTemplate: FC = () => (
       </div>
     </div>
     <div>
-      <WeekdayTemperatureForecast />
+      <WeekdayWeatherForecast />
     </div>
   </>
 );

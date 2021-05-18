@@ -2,16 +2,16 @@ import { FC } from 'react';
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
 
-import WeekdayTemperatureForecastItem, {
-  WeekdayTemperatureForecastItemProps,
-} from './WeekdayTemperatureForecastItem';
+import WeekdayWeatherForecastItem, {
+  WeekdayWeatherForecastItemProps,
+} from './WeekdayWeatherForecastItem';
 
 const container = css({
   display: 'flex',
 });
 
-const WeekdayTemperatureForecast: FC = () => {
-  const data: WeekdayTemperatureForecastItemProps[] = [
+const WeekdayWeatherForecast: FC = () => {
+  const data: WeekdayWeatherForecastItemProps[] = [
     {
       date: '5/23',
       weather: 'sunny',
@@ -59,7 +59,7 @@ const WeekdayTemperatureForecast: FC = () => {
   return (
     <div css={container}>
       {data.map((d) => (
-        <WeekdayTemperatureForecastItem
+        <WeekdayWeatherForecastItem
           date={d.date}
           weather={d.weather}
           highestTemperature={d.highestTemperature}
@@ -70,4 +70,4 @@ const WeekdayTemperatureForecast: FC = () => {
   );
 };
 
-export default WeekdayTemperatureForecast;
+export default WeekdayWeatherForecast;
