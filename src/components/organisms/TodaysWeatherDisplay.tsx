@@ -11,12 +11,17 @@ const container = css({
   display: 'flex',
 });
 
+const image = css({
+  maxHeight: 400,
+  maxWidth: 400,
+});
+
 const TodaysWeatherDisplay: FC = () => {
   const weather = 'sunny';
 
   return (
     <div css={container}>
-      <div>
+      <div css={image}>
         <TemperatureImage weather={weather} />
       </div>
       <div>
