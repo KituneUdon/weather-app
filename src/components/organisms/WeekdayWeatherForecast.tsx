@@ -64,6 +64,7 @@ const WeekdayWeatherForecast: FC = () => {
           weather={d.weather}
           highestTemperature={d.highestTemperature}
           lowestTemperature={d.highestTemperature}
+          key={d.date}
         />
       ))}
     </div>

@@ -1,4 +1,4 @@
-import { FC } from 'react';
+// import { FC } from 'react';
 import WeatherForcastTemplate from './WeathreForecastTemplate';
 
 export default {
@@ -6,4 +6,4 @@ export default {
   title: 'WeatherForcastTemplate',
 };
 
-export const Default: FC = () => <WeatherForcastTemplate />;
+// export const Default: FC = () => <WeatherForcastTemplate />;
