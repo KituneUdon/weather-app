@@ -6,4 +6,4 @@ export default {
   title: 'CurrentLocation',
 };
 
-export const Default: FC = () => <CurrentLocation />;
+// export const Default: FC = () => <CurrentLocation />;

@@ -8,6 +8,12 @@ import TemperatureLineChart from '../organisms/TemperatureLineChart';
 import TodaysWeatherDisplay from '../organisms/TodaysWeatherDisplay';
 import WeekdayWeatherForecast from '../organisms/WeekdayWeatherForecast';
 
+import { Location } from '../../types/location';
+
+type Props = {
+  location: Location;
+};
+
 const container = css({
   display: 'flex',
 });
@@ -16,13 +22,13 @@ const fullWidth = css({
   width: '100%',
 });
 
-const WeathreForecastTemplate: FC = () => (
+const WeathreForecastTemplate: FC<Props> = ({ location }) => (
   <>
     <div css={fullWidth}>
       <PlaceNameInputForm css={fullWidth} />
     </div>
     <div>
-      <CurrentLocation css={fullWidth} />
+      <CurrentLocation css={fullWidth} location={location} />
     </div>
     <div css={[container, fullWidth]}>
       <div>
