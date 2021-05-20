@@ -1,4 +1,4 @@
-import { FC } from 'react';
+// import { FC } from 'react';
 import TodaysWeatherDisplay from './TodaysWeatherDisplay';
 
 export default {
@@ -6,4 +6,4 @@ export default {
   title: 'TodaysWeatherDisplay',
 };
 
-export const Default: FC = () => <TodaysWeatherDisplay />;
+// export const Default: FC = () => <TodaysWeatherDisplay />;
