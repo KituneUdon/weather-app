@@ -1,4 +1,4 @@
-import { FC } from 'react';
+// import { FC } from 'react';
 import TemperatureImage from './TemperatureImage';
 
 export default {
@@ -6,6 +6,6 @@ export default {
   title: 'TemperatureImage',
 };
 
-export const Sunny: FC = () => <TemperatureImage weather="sunny" />;
-export const Rain: FC = () => <TemperatureImage weather="rain" />;
-export const Cloudy: FC = () => <TemperatureImage weather="cloudy" />;
+// export const Sunny: FC = () => <TemperatureImage weather="sunny" />;
+// export const Rain: FC = () => <TemperatureImage weather="rain" />;
+// export const Cloudy: FC = () => <TemperatureImage weather="cloudy" />;

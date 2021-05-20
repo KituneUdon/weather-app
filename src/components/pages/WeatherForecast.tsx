@@ -21,11 +21,6 @@ const WeatherForecast: FC = () => {
     [],
   );
 
-  useEffect(() => {
-    // eslint-disable-next-line
-    console.log(location);
-  }, [location]);
-
   return <WeatherForecastTemplate location={location} />;
 };
 
