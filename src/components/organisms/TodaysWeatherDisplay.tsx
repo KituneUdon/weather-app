@@ -104,11 +104,6 @@ const TodaysWeatherDisplay: FC<Props> = ({ location }) => {
         `https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude.toString()}2&lon=${location.longitude.toString()}&appid=${forecastAPIKey}`,
       );
 
-      // eslint-disable-next-line
-      console.log(
-        `https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude.toString()}2&lon=${location.longitude.toString()}&appid=${forecastAPIKey}`,
-      );
-
       return result;
     },
   );
