@@ -1,4 +1,4 @@
-import { FC } from 'react';
+// import { FC } from 'react';
 import WeekdayWeatherForecast from './WeekdayWeatherForecast';
 
 export default {
@@ -6,4 +6,4 @@ export default {
   title: 'WeekdayTemperatureForecast',
 };
 
-export const Defualt: FC = () => <WeekdayWeatherForecast />;
+// export const Defualt: FC = () => <WeekdayWeatherForecast />;

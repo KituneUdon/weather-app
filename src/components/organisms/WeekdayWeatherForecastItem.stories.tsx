@@ -1,4 +1,4 @@
-import { FC } from 'react';
+// import { FC } from 'react';
 import WeekdayWeatherForecastItem from './WeekdayWeatherForecastItem';
 
 export default {
@@ -6,11 +6,11 @@ export default {
   title: 'WeekdayTemperatureForecastItem',
 };
 
-export const Defualt: FC = () => (
-  <WeekdayWeatherForecastItem
-    date="2021/05/23"
-    weather="sunny"
-    lowestTemperature={22}
-    highestTemperature={23}
-  />
-);
+// export const Defualt: FC = () => (
+//   <WeekdayWeatherForecastItem
+//     date=20210523
+//     weather="clear"
+//     lowestTemperature={22}
+//     highestTemperature={23}
+//   />
+// );

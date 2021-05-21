@@ -104,6 +104,11 @@ const TodaysWeatherDisplay: FC<Props> = ({ location }) => {
         `https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude.toString()}2&lon=${location.longitude.toString()}&appid=${forecastAPIKey}`,
       );
 
+      // eslint-disable-next-line
+      console.log(
+        `https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude.toString()}2&lon=${location.longitude.toString()}&appid=${forecastAPIKey}`,
+      );
+
       return result;
     },
   );
@@ -112,8 +117,8 @@ const TodaysWeatherDisplay: FC<Props> = ({ location }) => {
     if (data) {
       setForecast({
         weather: data.data.weather[0].main,
-        maxTemp: data.data.main.temp_max - 273,
-        minTemp: data.data.main.temp_min - 273,
+        maxTemp: data.data.main.temp_max,
+        minTemp: data.data.main.temp_min,
       });
     }
   }, [data]);
