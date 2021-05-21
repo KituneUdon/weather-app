@@ -1,15 +1,25 @@
 import { FC } from 'react';
+import { QueryClient, QueryClientProvider } from 'react-query';
+
 import WeekdayWeatherForecastItem from './WeekdayWeatherForecastItem';
+
+const queryClient = new QueryClient();
 
 export default {
   component: WeekdayWeatherForecastItem,
   title: 'WeekdayTemperatureForecastItem',
+  decorators: [
+    // eslint-disable-next-line
+    (story: () => JSX.Element) => (
+      <QueryClientProvider client={queryClient}>{story()}</QueryClientProvider>
+    ),
+  ],
 };
 
 export const Defualt: FC = () => (
   <WeekdayWeatherForecastItem
-    date="2021/05/23"
-    weather="sunny"
+    date="05/23"
+    weather="Clear"
     lowestTemperature={22}
     highestTemperature={23}
   />

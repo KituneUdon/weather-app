@@ -7,9 +7,9 @@ export default {
 };
 
 export const HighestTemperature: FC = () => (
-  <TemperatureDisplay temperature={22} highestOrLowest="HIGHEST" />
+  <TemperatureDisplay temperature={290} highestOrLowest="HIGHEST" />
 );
 
 export const LowestTemperature: FC = () => (
-  <TemperatureDisplay temperature={22} highestOrLowest="LOWEST" />
+  <TemperatureDisplay temperature={283} highestOrLowest="LOWEST" />
 );

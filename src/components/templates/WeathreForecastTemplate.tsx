@@ -39,7 +39,7 @@ const WeathreForecastTemplate: FC<Props> = ({ location }) => (
       </div>
     </div>
     <div>
-      <WeekdayWeatherForecast />
+      <WeekdayWeatherForecast location={location} />
     </div>
   </>
 );

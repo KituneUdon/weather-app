@@ -112,8 +112,8 @@ const TodaysWeatherDisplay: FC<Props> = ({ location }) => {
     if (data) {
       setForecast({
         weather: data.data.weather[0].main,
-        maxTemp: data.data.main.temp_max - 273,
-        minTemp: data.data.main.temp_min - 273,
+        maxTemp: data.data.main.temp_max,
+        minTemp: data.data.main.temp_min,
       });
     }
   }, [data]);

@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import axios from 'axios';
 import { useQuery } from 'react-query';
+import dayjs from 'dayjs';
 
 import Typography from '../atoms/Typography';
 
@@ -29,6 +30,8 @@ type Response = {
   };
 };
 
+const now = dayjs();
+
 const CurrentLocation: FC<Props> = ({ location }) => {
   const { isLoading, data } = useQuery(
     `getPlaceName${location.latitude?.toString() ?? 'undefined'}${
@@ -50,7 +53,7 @@ const CurrentLocation: FC<Props> = ({ location }) => {
   const jsx =
     data?.data.response?.location !== undefined ? (
       <Typography>
-        5/21 {data.data.response.location[0].prefecture}{' '}
+        {now.format('MM/DD')} {data.data.response.location[0].prefecture}{' '}
         {data.data.response.location[0].city} の天気
       </Typography>
     ) : (

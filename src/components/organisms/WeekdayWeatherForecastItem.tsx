@@ -7,11 +7,13 @@ import Typography from '../atoms/Typography';
 import TemperatureDisplay from '../molecules/TemperatureDisplay';
 import TemperatureImage from '../molecules/TemperatureImage';
 
+import { Weather } from '../../types/weather';
+
 export type WeekdayWeatherForecastItemProps = {
   date: string;
   highestTemperature: number;
   lowestTemperature: number;
-  weather: 'sunny' | 'rain' | 'cloudy';
+  weather: Weather;
 };
 
 const container = css({
