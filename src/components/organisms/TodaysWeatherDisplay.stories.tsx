@@ -1,9 +1,21 @@
-// import { FC } from 'react';
+import { FC } from 'react';
+import { QueryClient, QueryClientProvider } from 'react-query';
+
 import TodaysWeatherDisplay from './TodaysWeatherDisplay';
+
+const queryClient = new QueryClient();
 
 export default {
   component: TodaysWeatherDisplay,
   title: 'TodaysWeatherDisplay',
+  decorators: [
+    // eslint-disable-next-line
+    (story: () => JSX.Element) => (
+      <QueryClientProvider client={queryClient}>{story()}</QueryClientProvider>
+    ),
+  ],
 };
 
-// export const Default: FC = () => <TodaysWeatherDisplay />;
+export const Default: FC = () => (
+  <TodaysWeatherDisplay location={{ latitude: 35, longitude: 139 }} />
+);
