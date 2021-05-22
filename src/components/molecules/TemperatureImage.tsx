@@ -37,12 +37,9 @@ const weatherIcon = {
   Clouds: cloudImage,
 };
 
-const switchWeatherImage = (weather: Weather) => {
-  // eslint-disable-next-line
-  console.log(weather);
-
-  return <Img src={weatherIcon[weather]} alt={weather} />;
-};
+const switchWeatherImage = (weather: Weather) => (
+  <Img src={weatherIcon[weather]} alt={weather} />
+);
 
 const TemperatureImage: FC<Props> = ({ weather }) =>
   switchWeatherImage(weather);

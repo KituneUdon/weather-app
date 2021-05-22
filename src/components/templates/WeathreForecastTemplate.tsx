@@ -35,7 +35,7 @@ const WeathreForecastTemplate: FC<Props> = ({ location }) => (
         <TodaysWeatherDisplay location={location} />
       </div>
       <div>
-        <TemperatureLineChart />
+        <TemperatureLineChart location={location} />
       </div>
     </div>
     <div>
