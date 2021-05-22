@@ -1,4 +1,4 @@
-import { FC } from 'react';
+// import { FC } from 'react';
 
 import TemperatureLineChart from './TemperatureLineChart';
 
@@ -7,4 +7,4 @@ export default {
   title: 'TemperatureLineChart',
 };
 
-export const Default: FC = () => <TemperatureLineChart />;
+// export const Default: FC = () => <TemperatureLineChart />;
