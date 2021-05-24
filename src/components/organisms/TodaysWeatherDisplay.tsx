@@ -6,6 +6,7 @@ import axios from 'axios';
 
 import Typography from '../atoms/Typography';
 
+import Loading from '../molecules/Loading';
 import TemperatureDisplay from '../molecules/TemperatureDisplay';
 import TemperatureImage from '../molecules/TemperatureImage';
 
@@ -123,7 +124,7 @@ const TodaysWeatherDisplay: FC<Props> = ({ location }) => {
       {isLoading ||
       location.latitude === null ||
       location.longitude === null ? (
-        <Typography>現在地取得中</Typography>
+        <Loading />
       ) : (
         <div css={container}>
           <div css={image}>

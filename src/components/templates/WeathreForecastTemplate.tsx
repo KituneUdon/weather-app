@@ -20,6 +20,10 @@ const container = css({
   display: 'flex',
 });
 
+const containerItem = css({
+  flexGrow: 1,
+});
+
 const fullWidth = css({
   width: '100%',
 });
@@ -29,7 +33,7 @@ const footer = css({
 });
 
 const WeathreForecastTemplate: FC<Props> = ({ setLocation, location }) => (
-  <>
+  <div>
     <div css={fullWidth}>
       <PlaceNameInputForm css={fullWidth} setLocation={setLocation} />
     </div>
@@ -37,10 +41,10 @@ const WeathreForecastTemplate: FC<Props> = ({ setLocation, location }) => (
       <CurrentLocation css={fullWidth} location={location} />
     </div>
     <div css={[container, fullWidth]}>
-      <div>
+      <div css={containerItem}>
         <TodaysWeatherDisplay location={location} />
       </div>
-      <div>
+      <div css={containerItem}>
         <TemperatureLineChart location={location} />
       </div>
     </div>
@@ -51,7 +55,7 @@ const WeathreForecastTemplate: FC<Props> = ({ setLocation, location }) => (
     <footer css={footer}>
       <LinkLicenseInformation />
     </footer>
-  </>
+  </div>
 );
 
 export default WeathreForecastTemplate;
