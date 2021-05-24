@@ -7,10 +7,9 @@ const queryClient = new QueryClient();
 
 export default {
   component: WeekdayWeatherForecast,
-  title: 'WeekdayTemperatureForecast',
+  title: 'organisms/WeekdayTemperatureForecast',
   decorators: [
-    // eslint-disable-next-line
-    (story: () => JSX.Element) => (
+    (story: () => JSX.Element): JSX.Element => (
       <QueryClientProvider client={queryClient}>{story()}</QueryClientProvider>
     ),
   ],

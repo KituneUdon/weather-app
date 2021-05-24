@@ -3,7 +3,7 @@ import TemperatureDisplay from './TemperatureDisplay';
 
 export default {
   component: TemperatureDisplay,
-  title: 'TemperatureDisplay',
+  title: 'molecules/TemperatureDisplay',
 };
 
 export const HighestTemperature: FC = () => (

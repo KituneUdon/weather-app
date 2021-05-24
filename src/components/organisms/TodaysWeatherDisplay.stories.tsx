@@ -7,10 +7,9 @@ const queryClient = new QueryClient();
 
 export default {
   component: TodaysWeatherDisplay,
-  title: 'TodaysWeatherDisplay',
+  title: 'organisms/sTodaysWeatherDisplay',
   decorators: [
-    // eslint-disable-next-line
-    (story: () => JSX.Element) => (
+    (story: () => JSX.Element): JSX.Element => (
       <QueryClientProvider client={queryClient}>{story()}</QueryClientProvider>
     ),
   ],

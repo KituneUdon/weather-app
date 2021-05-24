@@ -3,7 +3,7 @@ import LineGraph from './LineChart';
 
 export default {
   component: LineGraph,
-  title: 'LineGraph',
+  title: 'atoms/LineGraph',
 };
 
 const data = [

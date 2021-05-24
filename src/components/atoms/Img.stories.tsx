@@ -5,7 +5,7 @@ import SunnyImg from '../../images/tenki_mark01_hare.png';
 
 export default {
   component: Img,
-  title: 'Img',
+  title: 'atoms/Img',
 };
 
 export const Default: FC = () => <Img src={SunnyImg} alt="晴れ" />;

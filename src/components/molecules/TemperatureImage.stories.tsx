@@ -3,7 +3,7 @@ import TemperatureImage from './TemperatureImage';
 
 export default {
   component: TemperatureImage,
-  title: 'TemperatureImage',
+  title: 'molecules/TemperatureImage',
 };
 
 export const Thunderstorm: FC = () => (
