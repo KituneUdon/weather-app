@@ -8,7 +8,7 @@ const queryClient = new QueryClient();
 
 export default {
   component: WeatherForcast,
-  title: 'WeatherForcast',
+  title: 'pages/WeatherForcast',
   decorators: [
     (story: () => JSX.Element): JSX.Element => (
       <MemoryRouter initialEntries={['/lincense']}>
