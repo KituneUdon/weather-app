@@ -7,6 +7,11 @@
 - ESLint
 - Prettier
 
+## 使用API
+- Open Weather Map
+- Geolocation API
+- HeartRails Geo API
+
 # 機能一覧
 - 現在地の取得
 - 取得した現在地をもとに天気を表示する
