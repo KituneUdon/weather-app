@@ -7,6 +7,7 @@ import CurrentLocation from '../organisms/CurrentLocation';
 import TemperatureLineChart from '../organisms/TemperatureLineChart';
 import TodaysWeatherDisplay from '../organisms/TodaysWeatherDisplay';
 import WeekdayWeatherForecast from '../organisms/WeekdayWeatherForecast';
+import LinkLicenseInformation from '../organisms/LinkLicenseInformation';
 
 import { Location } from '../../types/location';
 
@@ -21,6 +22,10 @@ const container = css({
 
 const fullWidth = css({
   width: '100%',
+});
+
+const footer = css({
+  textAlign: 'center',
 });
 
 const WeathreForecastTemplate: FC<Props> = ({ setLocation, location }) => (
@@ -42,6 +47,10 @@ const WeathreForecastTemplate: FC<Props> = ({ setLocation, location }) => (
     <div>
       <WeekdayWeatherForecast location={location} />
     </div>
+    <hr />
+    <footer css={footer}>
+      <LinkLicenseInformation />
+    </footer>
   </>
 );
 
