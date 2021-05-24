@@ -3,7 +3,7 @@ import Typography from './Typography';
 
 export default {
   component: Typography,
-  title: 'Typography',
+  title: 'atoms/Typography',
 };
 
 export const Default: FC = () => <Typography>test</Typography>;

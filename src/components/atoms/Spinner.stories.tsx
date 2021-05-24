@@ -3,7 +3,7 @@ import Spinner from './Spinner';
 
 export default {
   component: Spinner,
-  title: 'Loading',
+  title: 'atoms/Loading',
 };
 
 export const Default: FC = () => <Spinner />;
