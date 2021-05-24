@@ -4,12 +4,10 @@ import PlaceNameInputForm from './PlaceNameInputForm';
 import { Location } from '../../types/location';
 
 // ダミーのsetLocation
-const setLocation = (location: Location) => {
-  // eslint-disable-next-line
-  console.log(location);
-
-  return {};
-};
+// locationを内部で参照していないため、ESLintでwarmingが出る
+// ダミーの関数のため、eslintを無効化して対応
+// eslint-disable-next-line
+const setLocation = (location: Location) => ({});
 
 export default {
   component: PlaceNameInputForm,

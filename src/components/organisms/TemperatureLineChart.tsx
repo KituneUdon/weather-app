@@ -3,8 +3,11 @@ import { useQuery } from 'react-query';
 import axios from 'axios';
 
 import dayjs from 'dayjs';
+
 import LineChart from '../atoms/LineChart';
 import Typography from '../atoms/Typography';
+
+import Loading from '../molecules/Loading';
 
 import { Location } from '../../types/location';
 import { Weather } from '../../types/weather';
@@ -73,7 +76,7 @@ const TempratureLineChart: FC<Props> = ({ location }) => {
     },
   );
 
-  let jsx = <Typography>現在地取得中</Typography>;
+  let jsx = <Loading />;
 
   if (data && (location.latitude !== null || location.longitude !== null)) {
     const temperatureData = data.data.hourly.map((d) => ({

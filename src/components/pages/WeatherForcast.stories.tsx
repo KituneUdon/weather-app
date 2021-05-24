@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import { MemoryRouter } from 'react-router-dom';
 
 import WeatherForcast from './WeatherForecast';
 
@@ -9,9 +10,12 @@ export default {
   component: WeatherForcast,
   title: 'WeatherForcast',
   decorators: [
-    // eslint-disable-next-line
-    (story: () => JSX.Element) => (
-      <QueryClientProvider client={queryClient}>{story()}</QueryClientProvider>
+    (story: () => JSX.Element): JSX.Element => (
+      <MemoryRouter initialEntries={['/lincense']}>
+        <QueryClientProvider client={queryClient}>
+          {story()}
+        </QueryClientProvider>
+      </MemoryRouter>
     ),
   ],
 };
