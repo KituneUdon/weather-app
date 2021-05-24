@@ -12,6 +12,7 @@ import { Location } from '../../types/location';
 
 type Props = {
   location: Location;
+  setLocation: (location: Location) => void;
 };
 
 const container = css({
@@ -22,10 +23,10 @@ const fullWidth = css({
   width: '100%',
 });
 
-const WeathreForecastTemplate: FC<Props> = ({ location }) => (
+const WeathreForecastTemplate: FC<Props> = ({ setLocation, location }) => (
   <>
     <div css={fullWidth}>
-      <PlaceNameInputForm css={fullWidth} />
+      <PlaceNameInputForm css={fullWidth} setLocation={setLocation} />
     </div>
     <div>
       <CurrentLocation css={fullWidth} location={location} />

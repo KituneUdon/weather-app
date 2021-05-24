@@ -21,7 +21,9 @@ const WeatherForecast: FC = () => {
     [],
   );
 
-  return <WeatherForecastTemplate location={location} />;
+  return (
+    <WeatherForecastTemplate location={location} setLocation={setLocation} />
+  );
 };
 
 export default WeatherForecast;
