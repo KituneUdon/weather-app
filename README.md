@@ -6,6 +6,10 @@
 - TypeScript 4.1.5
 - ESLint
 - Prettier
+- Storybook
+- React Query
+- Formik
+- Recharts
 
 ## 使用API
 - Open Weather Map
