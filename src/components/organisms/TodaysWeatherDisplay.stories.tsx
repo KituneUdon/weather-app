@@ -7,7 +7,7 @@ const queryClient = new QueryClient();
 
 export default {
   component: TodaysWeatherDisplay,
-  title: 'TodaysWeatherDisplay',
+  title: 'organisms/sTodaysWeatherDisplay',
   decorators: [
     (story: () => JSX.Element): JSX.Element => (
       <QueryClientProvider client={queryClient}>{story()}</QueryClientProvider>

@@ -7,7 +7,7 @@ const queryClient = new QueryClient();
 
 export default {
   component: CurrentLocation,
-  title: 'CurrentLocation',
+  title: 'organisms/CurrentLocation',
   decorators: [
     // eslint-disable-next-line
     (story: () => JSX.Element) => (

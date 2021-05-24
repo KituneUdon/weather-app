@@ -11,7 +11,7 @@ const setLocation = (location: Location) => ({});
 
 export default {
   component: PlaceNameInputForm,
-  title: 'PlaceNameInputForm',
+  title: 'organisms/PlaceNameInputForm',
 };
 
 export const Default: FC = () => (

@@ -5,7 +5,7 @@ import LinkLicenseInformation from './LinkLicenseInformation';
 
 export default {
   component: LinkLicenseInformation,
-  title: 'LinkLicenseInformation',
+  title: 'organisms/LinkLicenseInformation',
   decorators: [
     (story: () => JSX.Element): JSX.Element => (
       <MemoryRouter initialEntries={['/lincense']}>{story()}</MemoryRouter>

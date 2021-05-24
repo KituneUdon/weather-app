@@ -7,7 +7,7 @@ const queryClient = new QueryClient();
 
 export default {
   component: TemperatureLineChart,
-  title: 'TemperatureLineChart',
+  title: 'organisms/TemperatureLineChart',
   decorators: [
     (story: () => JSX.Element): JSX.Element => (
       <QueryClientProvider client={queryClient}>{story()}</QueryClientProvider>
