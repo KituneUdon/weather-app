@@ -5,6 +5,8 @@ import { useQuery } from 'react-query';
 import axios from 'axios';
 import dayjs from 'dayjs';
 
+import Loading from '../molecules/Loading';
+
 import WeekdayWeatherForecastItem from './WeekdayWeatherForecastItem';
 
 import { Location } from '../../types/location';
@@ -96,18 +98,24 @@ const WeekdayWeatherForecast: FC<Props> = ({ location }) => {
   const dailyForecast = data?.data.daily.slice(1, 7);
 
   return (
-    <div css={container}>
-      {dailyForecast !== undefined &&
-        dailyForecast.map((d) => (
-          <WeekdayWeatherForecastItem
-            date={dayjs.unix(d.dt).format('MM/DD')}
-            weather={d.weather[0].main}
-            highestTemperature={d.temp.max}
-            lowestTemperature={d.temp.min}
-            key={d.dt}
-          />
-        ))}
-    </div>
+    <>
+      {dailyForecast ? (
+        <div css={container}>
+          {dailyForecast !== undefined &&
+            dailyForecast.map((d) => (
+              <WeekdayWeatherForecastItem
+                date={dayjs.unix(d.dt).format('MM/DD')}
+                weather={d.weather[0].main}
+                highestTemperature={d.temp.max}
+                lowestTemperature={d.temp.min}
+                key={d.dt}
+              />
+            ))}
+        </div>
+      ) : (
+        <Loading />
+      )}
+    </>
   );
 };
 
