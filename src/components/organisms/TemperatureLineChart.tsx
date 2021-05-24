@@ -83,7 +83,7 @@ const TempratureLineChart: FC<Props> = ({ location }) => {
 
     jsx = (
       <>
-        <Typography>1日の気温変化</Typography>
+        <Typography>今後24時間の気温変化</Typography>
         <LineChart data={temperatureData} />
       </>
     );

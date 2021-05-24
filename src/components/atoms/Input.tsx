@@ -1,4 +1,5 @@
 import { FC } from 'react';
+/** @jsxImportSource @emotion/react */
 import { SerializedStyles } from '@emotion/react';
 
 export type Props = JSX.IntrinsicElements['input'] & {
@@ -6,9 +7,17 @@ export type Props = JSX.IntrinsicElements['input'] & {
 };
 
 const Input: FC<Props> = (props) => {
-  const { type, emotionStyle } = props;
+  const { type, emotionStyle, onChange, value, id } = props;
 
-  return <input css={emotionStyle} type={type} />;
+  return (
+    <input
+      id={id}
+      css={emotionStyle}
+      type={type}
+      onChange={onChange}
+      value={value}
+    />
+  );
 };
 
 export default Input;
