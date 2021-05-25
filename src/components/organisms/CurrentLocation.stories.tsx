@@ -9,8 +9,7 @@ export default {
   component: CurrentLocation,
   title: 'organisms/CurrentLocation',
   decorators: [
-    // eslint-disable-next-line
-    (story: () => JSX.Element) => (
+    (story: () => JSX.Element): JSX.Element => (
       <QueryClientProvider client={queryClient}>{story()}</QueryClientProvider>
     ),
   ],
