@@ -24,6 +24,9 @@
 - Geolocation API
 - HeartRails Geo API
 
+## Storybook
+https://www.chromatic.com/builds?appId=60ac4c700647b700446c2f77
+
 # 機能一覧
 - 現在地の取得
 - 取得した現在地をもとに天気を表示する
