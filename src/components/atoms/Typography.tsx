@@ -13,7 +13,11 @@ const Typography: FC<Props> = ({ color, children, centering }) => {
     color: ${color};
   `;
 
-  const textCenter = centering && css({ textAlign: 'center' });
+  const textCenter =
+    centering &&
+    css`
+      text-align: center;
+    `;
 
   return <p css={[style, textCenter]}>{children}</p>;
 };
