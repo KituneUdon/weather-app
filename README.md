@@ -15,6 +15,7 @@
 - ESLint
 - Prettier
 - Storybook
+  - chromatic + github actionsを用いたテスト 
 - React Query
 - Formik
 - Recharts
@@ -31,6 +32,9 @@ https://www.chromatic.com/builds?appId=60ac4c700647b700446c2f77
 - 現在地の取得
 - 取得した現在地をもとに天気を表示する
 - 都市名を検索し、その都市の天気を表示する
+
+# テスト
+- Chromaticを用いたスナップショットテスト
 
 # 使用イラストについて
 本アプリで使用しているイラストはすべてイラストや様のものを使用しております。
