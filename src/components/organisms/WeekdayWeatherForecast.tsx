@@ -5,6 +5,8 @@ import { useQuery } from 'react-query';
 import axios from 'axios';
 import dayjs from 'dayjs';
 
+import Typography from '../atoms/Typography';
+
 import Loading from '../molecules/Loading';
 
 import WeekdayWeatherForecastItem from './WeekdayWeatherForecastItem';
@@ -99,6 +101,7 @@ const WeekdayWeatherForecast: FC<Props> = ({ location }) => {
 
   return (
     <>
+      <Typography>1週間予報</Typography>
       {dailyForecast ? (
         <div css={container}>
           {dailyForecast !== undefined &&
