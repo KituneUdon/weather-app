@@ -16,7 +16,11 @@ export type WeekdayWeatherForecastItemProps = {
   weather: Weather;
 };
 
-const container = css({
+const container = css`
+  min-width: 126px;
+`;
+
+const flexBox = css({
   display: 'flex',
 });
 
@@ -28,16 +32,15 @@ const WeekdayWeatherForecastItem: FC<WeekdayWeatherForecastItemProps> = ({
   date,
   highestTemperature,
   lowestTemperature,
-  // weather,
 }) => (
-  <div>
+  <div css={container}>
     <div>
       <Typography centering>{date}</Typography>
     </div>
     <div>
       <TemperatureImage weather="Rain" />
     </div>
-    <div css={container}>
+    <div css={flexBox}>
       <div css={item}>
         <TemperatureDisplay
           highestOrLowest="HIGHEST"

@@ -20,6 +20,7 @@ const container = css`
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 30px;
+  width: 100%;
   max-width: 1000px;
   margin: 10px auto;
   @media (max-width: 480px) {
