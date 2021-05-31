@@ -20,13 +20,13 @@ const container = css`
   min-width: 126px;
 `;
 
-const flexBox = css({
-  display: 'flex',
-});
+const flexBox = css`
+  display: flex;
+`;
 
-const item = css({
-  flexGrow: 1,
-});
+const item = css`
+  flex-grow: 1;
+`;
 
 const WeekdayWeatherForecastItem: FC<WeekdayWeatherForecastItemProps> = ({
   date,

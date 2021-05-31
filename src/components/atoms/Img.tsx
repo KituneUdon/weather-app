@@ -7,9 +7,9 @@ type Props = {
   alt: string;
 };
 
-const style = css({
-  maxWidth: '100%',
-});
+const style = css`
+  max-width: 100%;
+`;
 
 const Img: FC<Props> = ({ src, alt }) => (
   <img css={style} src={src} alt={alt} />

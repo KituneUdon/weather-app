@@ -10,13 +10,13 @@ type Props = {
   searchPlace: (keyword: string) => void;
 };
 
-const container = css({
-  display: 'flex',
-});
+const container = css`
+  display: flex;
+`;
 
-const input = css({
-  flexGrow: 1,
-});
+const input = css`
+  flex-grow: 1;
+`;
 
 const SearchForm: FC<Props> = ({ searchPlace }) => {
   const formik = useFormik({
