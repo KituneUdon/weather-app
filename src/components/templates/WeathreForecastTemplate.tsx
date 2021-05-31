@@ -35,6 +35,10 @@ const fullWidth = css`
   }
 `;
 
+const weekdayWeatherForecastContainer = css`
+  overflow-x: hidden;
+`;
+
 const footer = css`
   border-top: 1px solid #000;
   text-align: center;
@@ -55,7 +59,7 @@ const WeathreForecastTemplate: FC<Props> = ({ setLocation, location }) => (
     <div>
       <TemperatureLineChart location={location} />
     </div>
-    <div css={fullWidth}>
+    <div css={[fullWidth, weekdayWeatherForecastContainer]}>
       <WeekdayWeatherForecast location={location} />
     </div>
     <footer css={[fullWidth, footer]}>
