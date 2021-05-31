@@ -12,7 +12,7 @@ import Loading from '../molecules/Loading';
 import { Location } from '../../types/location';
 import { Weather } from '../../types/weather';
 
-import forecastAPIKey from '../../config/config';
+// import forecastAPIKey from '../../config/config';
 
 type Props = {
   location: Location;
@@ -60,6 +60,8 @@ type Response = {
 };
 
 const TempratureLineChart: FC<Props> = ({ location }) => {
+  const forecastAPIKey = process.env.REACT_APP_FORECAST_API_KEY;
+
   const { data } = useQuery(
     `getDailyTemperature${location.latitude?.toString() ?? 'undefined'}${
       location.longitude?.toString() ?? 'undefined'
@@ -67,6 +69,8 @@ const TempratureLineChart: FC<Props> = ({ location }) => {
     async () => {
       if (location.latitude === null || location.longitude === null)
         return undefined;
+
+      if (forecastAPIKey === undefined) return undefined;
 
       const result = await axios.get<Response>(
         `https://api.openweathermap.org/data/2.5/onecall?lat=${location.latitude}&lon=${location.longitude}&exclude=current,minutely,daily,alerts&appid=${forecastAPIKey}`,
