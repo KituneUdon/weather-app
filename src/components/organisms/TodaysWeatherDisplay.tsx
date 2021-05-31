@@ -81,14 +81,52 @@ const defualtForecast: Forecast = {
   minTemp: null,
 };
 
-const container = css({
-  display: 'flex',
-});
+const weatherMap = {
+  Thunderstorm: '雷雨',
+  Drizzle: '霧雨',
+  Rain: '雨',
+  Snow: '雪',
+  Mist: '霧',
+  Smoke: '煙',
+  Haze: '薄霧',
+  Dust: '砂煙',
+  Fog: '霧',
+  Sand: '砂嵐',
+  Ash: '火山灰',
+  Squall: 'スコール',
+  Tornado: '竜巻',
+  Clear: '晴れ',
+  Clouds: '曇り',
+};
 
-const image = css({
-  maxHeight: 400,
-  maxWidth: 400,
-});
+const container = css`
+  width: 100%;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: repeat(4, 1fr);
+`;
+
+const image = css`
+  grid-column: 1;
+  grid-row: 1 / 4;
+  height: 100%;
+`;
+
+const maxTemperature = css`
+  grid-column: 2;
+  grid-row: 2;
+`;
+
+const minTemperature = css`
+  grid-column: 2;
+  grid-row: 3;
+`;
+
+const forecastTypography = css`
+  grid-column: 1;
+  grid-row: 4;
+  margin: 0 auto;
+`;
 
 const TodaysWeatherDisplay: FC<Props> = ({ location }) => {
   const [forecast, setForecast] = useState(defualtForecast);
@@ -130,21 +168,24 @@ const TodaysWeatherDisplay: FC<Props> = ({ location }) => {
           <div css={image}>
             <TemperatureImage weather={forecast.weather ?? 'Clear'} />
           </div>
-          <div>
-            <div>
-              <TemperatureDisplay
-                temperature={forecast.maxTemp ?? 0}
-                highestOrLowest="HIGHEST"
-              />
-              <Typography>最高気温</Typography>
-            </div>
-            <div>
-              <TemperatureDisplay
-                temperature={forecast.minTemp ?? 0}
-                highestOrLowest="LOWEST"
-              />
-              <Typography>最低気温</Typography>
-            </div>
+          <div css={forecastTypography}>
+            <Typography>
+              {forecast.weather && weatherMap[forecast.weather]}
+            </Typography>
+          </div>
+          <div css={maxTemperature}>
+            <TemperatureDisplay
+              temperature={forecast.maxTemp ?? 0}
+              highestOrLowest="HIGHEST"
+            />
+            <Typography>最高気温</Typography>
+          </div>
+          <div css={minTemperature}>
+            <TemperatureDisplay
+              temperature={forecast.minTemp ?? 0}
+              highestOrLowest="LOWEST"
+            />
+            <Typography>最低気温</Typography>
           </div>
         </div>
       )}
