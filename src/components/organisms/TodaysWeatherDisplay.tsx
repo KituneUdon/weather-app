@@ -10,7 +10,7 @@ import Loading from '../molecules/Loading';
 import TemperatureDisplay from '../molecules/TemperatureDisplay';
 import TemperatureImage from '../molecules/TemperatureImage';
 
-import forecastAPIKey from '../../config/config';
+// import forecastAPIKey from '../../config/config';
 
 import { Location } from '../../types/location';
 import { Weather } from '../../types/weather';
@@ -130,6 +130,10 @@ const forecastTypography = css`
 
 const TodaysWeatherDisplay: FC<Props> = ({ location }) => {
   const [forecast, setForecast] = useState(defualtForecast);
+  const forecastAPIKey = process.env.REACT_APP_FORECAST_API_KEY;
+
+  // eslint-disable-next-line
+  console.log(`forecastAPIKey : ${forecastAPIKey}`);
 
   const { isLoading, data } = useQuery(
     `getTodayForecast${location.latitude?.toString() ?? 'undefined'}${
@@ -138,6 +142,8 @@ const TodaysWeatherDisplay: FC<Props> = ({ location }) => {
     async () => {
       if (location.latitude === null || location.longitude === null)
         return undefined;
+
+      if (forecastAPIKey === undefined) return undefined;
 
       const result = await axios.get<Response>(
         `https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude.toString()}2&lon=${location.longitude.toString()}&appid=${forecastAPIKey}`,
