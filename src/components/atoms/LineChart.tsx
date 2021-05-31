@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { LineChart, Line, XAxis, YAxis } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, ResponsiveContainer } from 'recharts';
 
 export type Data = {
   time: string;
@@ -11,11 +11,13 @@ type Props = {
 };
 
 const LineGraph: FC<Props> = ({ data }) => (
-  <LineChart width={500} height={500} data={data}>
-    <XAxis dataKey="time" />
-    <YAxis />
-    <Line type="monotone" dataKey="temperature" stroke="#FF0000" />
-  </LineChart>
+  <ResponsiveContainer width="90%" height={500}>
+    <LineChart width={400} height={400} data={data}>
+      <XAxis dataKey="time" />
+      <YAxis />
+      <Line type="monotone" dataKey="temperature" stroke="#FF0000" />
+    </LineChart>
+  </ResponsiveContainer>
 );
 
 export default LineGraph;
