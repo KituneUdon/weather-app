@@ -1,9 +1,15 @@
 import { FC } from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
+/** @jsxImportSource @emotion/react */
+import { css } from '@emotion/react';
 
 import WeekdayWeatherForecast from './WeekdayWeatherForecast';
 
 const queryClient = new QueryClient();
+
+const scrollContainer = css`
+  width: 300px;
+`;
 
 export default {
   component: WeekdayWeatherForecast,
@@ -17,4 +23,11 @@ export default {
 
 export const Defualt: FC = () => (
   <WeekdayWeatherForecast location={{ latitude: 35, longitude: 139 }} />
+);
+
+export const Scroll: FC = () => (
+  // eslint-disable-next-line
+  <div css={scrollContainer}>
+    <WeekdayWeatherForecast location={{ latitude: 35, longitude: 139 }} />
+  </div>
 );

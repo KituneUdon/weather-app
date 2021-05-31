@@ -5,6 +5,8 @@ import { useQuery } from 'react-query';
 import axios from 'axios';
 import dayjs from 'dayjs';
 
+import Typography from '../atoms/Typography';
+
 import Loading from '../molecules/Loading';
 
 import WeekdayWeatherForecastItem from './WeekdayWeatherForecastItem';
@@ -18,9 +20,11 @@ type Props = {
   location: Location;
 };
 
-const container = css({
-  display: 'flex',
-});
+const weekdayForecastContainer = css`
+  display: flex;
+  width: 100%;
+  overflow-x: scroll;
+`;
 
 type Response = {
   lat: number;
@@ -99,22 +103,23 @@ const WeekdayWeatherForecast: FC<Props> = ({ location }) => {
 
   return (
     <>
-      {dailyForecast ? (
-        <div css={container}>
-          {dailyForecast !== undefined &&
-            dailyForecast.map((d) => (
-              <WeekdayWeatherForecastItem
-                date={dayjs.unix(d.dt).format('MM/DD')}
-                weather={d.weather[0].main}
-                highestTemperature={d.temp.max}
-                lowestTemperature={d.temp.min}
-                key={d.dt}
-              />
-            ))}
-        </div>
-      ) : (
-        <Loading />
-      )}
+      <Typography>1週間予報</Typography>
+      <div css={weekdayForecastContainer}>
+        {dailyForecast ? (
+          dailyForecast !== undefined &&
+          dailyForecast.map((d) => (
+            <WeekdayWeatherForecastItem
+              date={dayjs.unix(d.dt).format('MM/DD')}
+              weather={d.weather[0].main}
+              highestTemperature={d.temp.max}
+              lowestTemperature={d.temp.min}
+              key={d.dt}
+            />
+          ))
+        ) : (
+          <Loading />
+        )}
+      </div>
     </>
   );
 };

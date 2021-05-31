@@ -16,43 +16,53 @@ type Props = {
   setLocation: (location: Location) => void;
 };
 
-const container = css({
-  display: 'flex',
-});
+const container = css`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  width: 100%;
+  max-width: 1000px;
+  margin: 10px auto;
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
+`;
 
-const containerItem = css({
-  flexGrow: 1,
-});
+const fullWidth = css`
+  grid-column: 1 / 3;
+  @media (max-width: 480px) {
+    grid-column: 1;
+  }
+`;
 
-const fullWidth = css({
-  width: '100%',
-});
+const weekdayWeatherForecastContainer = css`
+  overflow-x: hidden;
+`;
 
-const footer = css({
-  textAlign: 'center',
-});
+const footer = css`
+  border-top: 1px solid #000;
+  text-align: center;
+  padding: 10px 0;
+`;
 
 const WeathreForecastTemplate: FC<Props> = ({ setLocation, location }) => (
-  <div>
+  <div css={container}>
     <div css={fullWidth}>
-      <PlaceNameInputForm css={fullWidth} setLocation={setLocation} />
+      <PlaceNameInputForm setLocation={setLocation} />
+    </div>
+    <div css={fullWidth}>
+      <CurrentLocation location={location} />
     </div>
     <div>
-      <CurrentLocation css={fullWidth} location={location} />
-    </div>
-    <div css={[container, fullWidth]}>
-      <div css={containerItem}>
-        <TodaysWeatherDisplay location={location} />
-      </div>
-      <div css={containerItem}>
-        <TemperatureLineChart location={location} />
-      </div>
+      <TodaysWeatherDisplay location={location} />
     </div>
     <div>
+      <TemperatureLineChart location={location} />
+    </div>
+    <div css={[fullWidth, weekdayWeatherForecastContainer]}>
       <WeekdayWeatherForecast location={location} />
     </div>
-    <hr />
-    <footer css={footer}>
+    <footer css={[fullWidth, footer]}>
       <LinkLicenseInformation />
     </footer>
   </div>
