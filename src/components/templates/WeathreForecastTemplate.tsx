@@ -22,10 +22,16 @@ const container = css`
   gap: 30px;
   max-width: 1000px;
   margin: 10px auto;
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const fullWidth = css`
   grid-column: 1 / 3;
+  @media (max-width: 480px) {
+    grid-column: 1;
+  }
 `;
 
 const footer = css`
