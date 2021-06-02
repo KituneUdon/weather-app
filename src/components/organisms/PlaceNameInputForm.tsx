@@ -25,6 +25,7 @@ type Response = {
         postal: string;
       },
     ];
+    error?: string;
   };
 };
 
@@ -38,11 +39,7 @@ const PlaceNameInputForm: FC<Props> = ({ setLocation }) => {
       ),
     );
 
-    if (response) {
-      // eslint-disable-next-line
-      console.log(
-        `x : ${response.data.response.location[0].x}, y : ${response.data.response.location[0].y}`,
-      );
+    if (response && response.data.response.error === undefined) {
       setLocation({
         latitude: Number(response.data.response.location[0].y),
         longitude: Number(response.data.response.location[0].x),
