@@ -1,7 +1,9 @@
-import { FC } from 'react';
+import { FC, useContext } from 'react';
 import axios from 'axios';
 
 import SearchForm from '../molecules/SearchForm';
+
+import { ErrorMessageContext } from '../../contexts/ErrorMessageContext';
 
 import { Location } from '../../types/location';
 
@@ -25,28 +27,28 @@ type Response = {
         postal: string;
       },
     ];
+    error?: string;
   };
 };
 
 const PlaceNameInputForm: FC<Props> = ({ setLocation }) => {
+  const { setErrorMessage } = useContext(ErrorMessageContext);
+
   const searchPlace = async (keyword: string) => {
-    // eslint-disable-next-line
-    console.log(`keyword : ${keyword}`);
     const response = await axios.get<Response>(
       encodeURI(
         `https://geoapi.heartrails.com/api/json?method=suggest&matching=like&keyword=${keyword}`,
       ),
     );
 
-    if (response) {
-      // eslint-disable-next-line
-      console.log(
-        `x : ${response.data.response.location[0].x}, y : ${response.data.response.location[0].y}`,
-      );
+    if (response && response.data.response.error === undefined) {
       setLocation({
         latitude: Number(response.data.response.location[0].y),
         longitude: Number(response.data.response.location[0].x),
       });
+      setErrorMessage('');
+    } else {
+      setErrorMessage('地名が見つかりませんでした');
     }
 
     return response;

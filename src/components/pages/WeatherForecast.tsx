@@ -1,6 +1,7 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useEffect, useState, useContext } from 'react';
 
 import WeatherForecastTemplate from '../templates/WeathreForecastTemplate';
+import { ErrorMessageContext } from '../../contexts/ErrorMessageContext';
 
 import { Location } from '../../types/location';
 
@@ -9,6 +10,8 @@ const WeatherForecast: FC = () => {
     latitude: null,
     longitude: null,
   });
+
+  const { errorMessage } = useContext(ErrorMessageContext);
 
   useEffect(
     () =>
@@ -22,7 +25,11 @@ const WeatherForecast: FC = () => {
   );
 
   return (
-    <WeatherForecastTemplate location={location} setLocation={setLocation} />
+    <WeatherForecastTemplate
+      location={location}
+      setLocation={setLocation}
+      errorMessage={errorMessage}
+    />
   );
 };
 

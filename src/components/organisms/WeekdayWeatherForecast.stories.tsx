@@ -26,7 +26,6 @@ export const Defualt: FC = () => (
 );
 
 export const Scroll: FC = () => (
-  // eslint-disable-next-line
   <div css={scrollContainer}>
     <WeekdayWeatherForecast location={{ latitude: 35, longitude: 139 }} />
   </div>
