@@ -34,5 +34,9 @@ const location = {
 const setLocation = (location: Location) => ({});
 
 export const Default: FC = () => (
-  <WeatherForcastTemplate location={location} setLocation={setLocation} />
+  <WeatherForcastTemplate
+    location={location}
+    setLocation={setLocation}
+    errorMessage=""
+  />
 );

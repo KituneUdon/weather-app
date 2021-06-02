@@ -1,7 +1,9 @@
-import { FC } from 'react';
+import { FC, useContext } from 'react';
 import axios from 'axios';
 
 import SearchForm from '../molecules/SearchForm';
+
+import { ErrorMessageContext } from '../../contexts/ErrorMessageContext';
 
 import { Location } from '../../types/location';
 
@@ -30,6 +32,8 @@ type Response = {
 };
 
 const PlaceNameInputForm: FC<Props> = ({ setLocation }) => {
+  const { setErrorMessage } = useContext(ErrorMessageContext);
+
   const searchPlace = async (keyword: string) => {
     const response = await axios.get<Response>(
       encodeURI(
@@ -42,6 +46,9 @@ const PlaceNameInputForm: FC<Props> = ({ setLocation }) => {
         latitude: Number(response.data.response.location[0].y),
         longitude: Number(response.data.response.location[0].x),
       });
+      setErrorMessage('');
+    } else {
+      setErrorMessage('地名が見つかりませんでした');
     }
 
     return response;

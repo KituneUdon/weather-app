@@ -8,12 +8,14 @@ import TemperatureLineChart from '../organisms/TemperatureLineChart';
 import TodaysWeatherDisplay from '../organisms/TodaysWeatherDisplay';
 import WeekdayWeatherForecast from '../organisms/WeekdayWeatherForecast';
 import LinkLicenseInformation from '../organisms/LinkLicenseInformation';
+import ErrorMessage from '../organisms/ErrorMessage';
 
 import { Location } from '../../types/location';
 
 type Props = {
   location: Location;
   setLocation: (location: Location) => void;
+  errorMessage: string;
 };
 
 const container = css`
@@ -45,8 +47,17 @@ const footer = css`
   padding: 10px 0;
 `;
 
-const WeathreForecastTemplate: FC<Props> = ({ setLocation, location }) => (
+const WeathreForecastTemplate: FC<Props> = ({
+  setLocation,
+  location,
+  errorMessage,
+}) => (
   <div css={container}>
+    {errorMessage && (
+      <div css={fullWidth}>
+        <ErrorMessage />
+      </div>
+    )}
     <div css={fullWidth}>
       <PlaceNameInputForm setLocation={setLocation} />
     </div>
