@@ -7,7 +7,7 @@ export type Props = JSX.IntrinsicElements['input'] & {
 };
 
 const Input: FC<Props> = (props) => {
-  const { type, emotionStyle, onChange, value, id } = props;
+  const { type, emotionStyle, onChange, value, id, placeholder } = props;
 
   return (
     <input
@@ -16,6 +16,7 @@ const Input: FC<Props> = (props) => {
       type={type}
       onChange={onChange}
       value={value}
+      placeholder={placeholder}
     />
   );
 };

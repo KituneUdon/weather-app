@@ -36,6 +36,7 @@ const SearchForm: FC<Props> = ({ searchPlace }) => {
         type="text"
         onChange={formik.handleChange}
         value={formik.values.place}
+        placeholder="天気予報を知りたい地名を入力してください"
       />
       <Submit label="検索" />
     </form>
