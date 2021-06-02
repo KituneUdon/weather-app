@@ -132,9 +132,6 @@ const TodaysWeatherDisplay: FC<Props> = ({ location }) => {
   const [forecast, setForecast] = useState(defualtForecast);
   const forecastAPIKey = process.env.REACT_APP_FORECAST_API_KEY;
 
-  // eslint-disable-next-line
-  console.log(`forecastAPIKey : ${forecastAPIKey}`);
-
   const { isLoading, data } = useQuery(
     `getTodayForecast${location.latitude?.toString() ?? 'undefined'}${
       location.longitude?.toString() ?? 'undefined'

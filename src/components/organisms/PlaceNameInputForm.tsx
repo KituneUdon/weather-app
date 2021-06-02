@@ -31,8 +31,6 @@ type Response = {
 
 const PlaceNameInputForm: FC<Props> = ({ setLocation }) => {
   const searchPlace = async (keyword: string) => {
-    // eslint-disable-next-line
-    console.log(`keyword : ${keyword}`);
     const response = await axios.get<Response>(
       encodeURI(
         `https://geoapi.heartrails.com/api/json?method=suggest&matching=like&keyword=${keyword}`,
