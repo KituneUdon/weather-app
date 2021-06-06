@@ -48,4 +48,5 @@ https://www.irasutoya.com/p/terms.html
 
 ## アイコン
 ### 削除ボタン
+Icon rainbowより
 https://icon-rainbow.com/%E7%A6%81%E6%AD%A2%E3%80%81%E9%96%89%E3%81%98%E3%82%8B%E3%81%AE%E3%82%A2%E3%82%A4%E3%82%B3%E3%83%B3%E7%B4%A0%E6%9D%90-2/
