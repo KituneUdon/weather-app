@@ -32,13 +32,14 @@ const WeekdayWeatherForecastItem: FC<WeekdayWeatherForecastItemProps> = ({
   date,
   highestTemperature,
   lowestTemperature,
+  weather,
 }) => (
   <div css={container}>
     <div>
       <Typography centering>{date}</Typography>
     </div>
     <div>
-      <TemperatureImage weather="Rain" />
+      <TemperatureImage weather={weather} />
     </div>
     <div css={flexBox}>
       <div css={item}>
