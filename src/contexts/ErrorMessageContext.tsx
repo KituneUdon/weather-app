@@ -10,9 +10,6 @@ const ErrorMessageContext = createContext({} as ContextType);
 const ErrorMessageProvider: FC = ({ children }) => {
   const [errorMessage, setErrorMessage] = useState('');
 
-  // eslint-disable-next-line
-  console.log('ErrorMessageContextが実行されました');
-
   return (
     <ErrorMessageContext.Provider value={{ errorMessage, setErrorMessage }}>
       {children}
