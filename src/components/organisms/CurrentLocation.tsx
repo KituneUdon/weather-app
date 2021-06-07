@@ -43,7 +43,7 @@ const CurrentLocation: FC<Props> = ({ location }) => {
       }
 
       const response = axios.get<Response>(
-        `http://geoapi.heartrails.com/api/json?method=searchByGeoLocation&y=${location.latitude}&x=${location.longitude}`,
+        `https://geoapi.heartrails.com/api/json?method=searchByGeoLocation&y=${location.latitude}&x=${location.longitude}`,
       );
 
       return response;

@@ -13,7 +13,7 @@ const App: FC = () => (
   <>
     <ErrorMessageProvider>
       <QueryClientProvider client={queryClient}>
-        <Router>
+        <Router basename={process.env.PUBLIC_URL}>
           <Switch>
             <Route path="/" exact>
               <WeatherForecast />
