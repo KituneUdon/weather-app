@@ -143,7 +143,7 @@ const TodaysWeatherDisplay: FC<Props> = ({ location }) => {
       if (forecastAPIKey === undefined) return undefined;
 
       const result = await axios.get<Response>(
-        `https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude.toString()}2&lon=${location.longitude.toString()}&appid=${forecastAPIKey}`,
+        `https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude.toString()}&lon=${location.longitude.toString()}&appid=${forecastAPIKey}`,
       );
 
       return result;

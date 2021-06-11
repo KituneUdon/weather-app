@@ -14,8 +14,6 @@ import WeekdayWeatherForecastItem from './WeekdayWeatherForecastItem';
 import { Location } from '../../types/location';
 import { Weather } from '../../types/weather';
 
-// import forecastAPIKey from '../../config/config';
-
 type Props = {
   location: Location;
 };
@@ -102,11 +100,6 @@ const WeekdayWeatherForecast: FC<Props> = ({ location }) => {
       return result;
     },
   );
-
-  if (data) {
-    // eslint-disable-next-line
-    console.log(data);
-  }
 
   const dailyForecast = data?.data.daily.slice(1, 7);
 
