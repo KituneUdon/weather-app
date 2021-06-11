@@ -14,8 +14,6 @@ import WeekdayWeatherForecastItem from './WeekdayWeatherForecastItem';
 import { Location } from '../../types/location';
 import { Weather } from '../../types/weather';
 
-// import forecastAPIKey from '../../config/config';
-
 type Props = {
   location: Location;
 };
