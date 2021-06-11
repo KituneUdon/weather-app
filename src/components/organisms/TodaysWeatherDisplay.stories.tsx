@@ -1,9 +1,47 @@
 import { FC } from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import axios from 'axios';
+import MockAdapter from 'axios-mock-adapter';
 
 import TodaysWeatherDisplay from './TodaysWeatherDisplay';
 
 const queryClient = new QueryClient();
+const mock = new MockAdapter(axios);
+
+const forecastAPIKey = process.env.REACT_APP_FORECAST_API_KEY;
+
+const serverResponse = {
+  coord: { lon: 135, lat: 35 },
+  weather: [
+    { id: 804, main: 'Clouds', description: 'overcast clouds', icon: '04d' },
+  ],
+  base: 'stations',
+  main: {
+    temp: 295.06,
+    feels_like: 295.16,
+    temp_min: 294.08,
+    temp_max: 298.82,
+    pressure: 1017,
+    humidity: 71,
+    sea_level: 1017,
+    grnd_level: 1007,
+  },
+  visibility: 10000,
+  wind: { speed: 3.62, deg: 181, gust: 10.21 },
+  clouds: { all: 100 },
+  dt: 1623405372,
+  sys: {
+    type: 2,
+    id: 19913,
+    country: 'JP',
+    sunrise: 1623354339,
+    sunset: 1623406425,
+  },
+  timezone: 32400,
+  id: 1855134,
+  name: 'Nishiwaki',
+  cod: 200,
+};
 
 export default {
   component: TodaysWeatherDisplay,
@@ -15,6 +53,24 @@ export default {
   ],
 };
 
-export const Default: FC = () => (
-  <TodaysWeatherDisplay location={{ latitude: 35, longitude: 139 }} />
-);
+export const Default: FC = () => {
+  let returnVal = (
+    <TodaysWeatherDisplay location={{ latitude: 35, longitude: 139 }} />
+  );
+
+  if (forecastAPIKey) {
+    mock
+      .onGet(
+        `https://api.openweathermap.org/data/2.5/weather?lat=35&lon=135&appid=${forecastAPIKey}`,
+      )
+      .reply(200, serverResponse);
+
+    returnVal = (
+      <TodaysWeatherDisplay location={{ latitude: 35, longitude: 135 }} />
+    );
+  } else {
+    returnVal = <p>APIキーの取得に失敗しました</p>;
+  }
+
+  return returnVal;
+};
