@@ -103,11 +103,6 @@ const WeekdayWeatherForecast: FC<Props> = ({ location }) => {
     },
   );
 
-  if (data) {
-    // eslint-disable-next-line
-    console.log(data);
-  }
-
   const dailyForecast = data?.data.daily.slice(1, 7);
 
   return (
