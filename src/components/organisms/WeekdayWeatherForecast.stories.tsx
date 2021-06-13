@@ -10,7 +10,7 @@ import WeekdayWeatherForecast from './WeekdayWeatherForecast';
 const queryClient = new QueryClient();
 const mock = new MockAdapter(axios);
 
-const serverResponse = {
+const mockResponse = {
   lat: 35,
   lon: 135,
   timezone: 'Asia/Tokyo',
@@ -352,7 +352,7 @@ export default {
 export const Defualt: FC = () => {
   mock
     .onGet(/https:\/\/api.openweathermap.org\/data\/2.5\/onecall/)
-    .reply(200, serverResponse);
+    .reply(200, mockResponse);
 
   return <WeekdayWeatherForecast location={{ latitude: 35, longitude: 135 }} />;
 };
@@ -360,7 +360,7 @@ export const Defualt: FC = () => {
 export const Scroll: FC = () => {
   mock
     .onGet(/https:\/\/api.openweathermap.org\/data\/2.5\/onecall/)
-    .reply(200, serverResponse);
+    .reply(200, mockResponse);
 
   return (
     <div css={scrollContainer}>
