@@ -10,8 +10,6 @@ import WeekdayWeatherForecast from './WeekdayWeatherForecast';
 const queryClient = new QueryClient();
 const mock = new MockAdapter(axios);
 
-const forecastAPIKey = process.env.REACT_APP_FORECAST_API_KEY;
-
 const serverResponse = {
   lat: 35,
   lon: 135,
@@ -352,43 +350,21 @@ export default {
 };
 
 export const Defualt: FC = () => {
-  let returnVal;
+  mock
+    .onGet(/https:\/\/api.openweathermap.org\/data\/2.5\/onecall/)
+    .reply(200, serverResponse);
 
-  if (forecastAPIKey) {
-    mock
-      .onGet(
-        `https://api.openweathermap.org/data/2.5/onecall?lat=35&lon=135&exclude=current,minutely,hourly&appid=${forecastAPIKey}`,
-      )
-      .reply(200, serverResponse);
-
-    returnVal = (
-      <WeekdayWeatherForecast location={{ latitude: 35, longitude: 135 }} />
-    );
-  } else {
-    returnVal = <p>APIキーの取得に失敗しました</p>;
-  }
-
-  return returnVal;
+  return <WeekdayWeatherForecast location={{ latitude: 35, longitude: 135 }} />;
 };
 
 export const Scroll: FC = () => {
-  let returnVal;
+  mock
+    .onGet(/https:\/\/api.openweathermap.org\/data\/2.5\/onecall/)
+    .reply(200, serverResponse);
 
-  if (forecastAPIKey) {
-    mock
-      .onGet(
-        `https://api.openweathermap.org/data/2.5/onecall?lat=35&lon=135&exclude=current,minutely,hourly&appid=${forecastAPIKey}`,
-      )
-      .reply(200, serverResponse);
-
-    returnVal = (
-      <div css={scrollContainer}>
-        <WeekdayWeatherForecast location={{ latitude: 35, longitude: 135 }} />
-      </div>
-    );
-  } else {
-    returnVal = <p>APIキーの取得に失敗しました</p>;
-  }
-
-  return returnVal;
+  return (
+    <div css={scrollContainer}>
+      <WeekdayWeatherForecast location={{ latitude: 35, longitude: 135 }} />
+    </div>
+  );
 };
