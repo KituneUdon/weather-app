@@ -10,8 +10,6 @@ import Loading from '../molecules/Loading';
 import TemperatureDisplay from '../molecules/TemperatureDisplay';
 import TemperatureImage from '../molecules/TemperatureImage';
 
-// import forecastAPIKey from '../../config/config';
-
 import { Location } from '../../types/location';
 import { Weather } from '../../types/weather';
 
