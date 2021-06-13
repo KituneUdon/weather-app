@@ -6,11 +6,8 @@ import MockAdapter from 'axios-mock-adapter';
 import TodaysWeatherDisplay from './TodaysWeatherDisplay';
 
 const queryClient = new QueryClient();
-const mock = new MockAdapter(axios);
 
-const forecastAPIKey = process.env.REACT_APP_FORECAST_API_KEY;
-
-const serverResponse = {
+const mockResponse = {
   coord: { lon: 135, lat: 35 },
   weather: [
     { id: 804, main: 'Clouds', description: 'overcast clouds', icon: '04d' },
@@ -54,23 +51,13 @@ export default {
 };
 
 export const Default: FC = () => {
-  let returnVal = (
-    <TodaysWeatherDisplay location={{ latitude: 35, longitude: 139 }} />
-  );
+  const mock = new MockAdapter(axios);
 
-  if (forecastAPIKey) {
-    mock
-      .onGet(
-        `https://api.openweathermap.org/data/2.5/weather?lat=35&lon=135&appid=${forecastAPIKey}`,
-      )
-      .reply(200, serverResponse);
+  mock
+    .onGet(
+      /^https:\/\/api.openweathermap.org\/data\/2.5\/weather\?lat=\d+(?:\.\d+)?&lon=\d+(?:\.\d+)?&appid=.*$/,
+    )
+    .reply(200, mockResponse);
 
-    returnVal = (
-      <TodaysWeatherDisplay location={{ latitude: 35, longitude: 135 }} />
-    );
-  } else {
-    returnVal = <p>APIキーの取得に失敗しました</p>;
-  }
-
-  return returnVal;
+  return <TodaysWeatherDisplay location={{ latitude: 35, longitude: 135 }} />;
 };

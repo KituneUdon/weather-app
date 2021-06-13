@@ -8,11 +8,8 @@ import MockAdapter from 'axios-mock-adapter';
 import WeekdayWeatherForecast from './WeekdayWeatherForecast';
 
 const queryClient = new QueryClient();
-const mock = new MockAdapter(axios);
 
-const forecastAPIKey = process.env.REACT_APP_FORECAST_API_KEY;
-
-const serverResponse = {
+const mockResponse = {
   lat: 35,
   lon: 135,
   timezone: 'Asia/Tokyo',
@@ -352,43 +349,29 @@ export default {
 };
 
 export const Defualt: FC = () => {
-  let returnVal;
+  const mock = new MockAdapter(axios);
 
-  if (forecastAPIKey) {
-    mock
-      .onGet(
-        `https://api.openweathermap.org/data/2.5/onecall?lat=35&lon=135&exclude=current,minutely,hourly&appid=${forecastAPIKey}`,
-      )
-      .reply(200, serverResponse);
+  mock
+    .onGet(
+      /^https:\/\/api.openweathermap.org\/data\/2.5\/onecall\?lat=\d+(?:\.\d+)?&lon=\d+(?:\.\d+)?&exclude=current,minutely,hourly&appid=.*/,
+    )
+    .reply(200, mockResponse);
 
-    returnVal = (
-      <WeekdayWeatherForecast location={{ latitude: 35, longitude: 135 }} />
-    );
-  } else {
-    returnVal = <p>APIキーの取得に失敗しました</p>;
-  }
-
-  return returnVal;
+  return <WeekdayWeatherForecast location={{ latitude: 35, longitude: 135 }} />;
 };
 
 export const Scroll: FC = () => {
-  let returnVal;
+  const mock = new MockAdapter(axios);
 
-  if (forecastAPIKey) {
-    mock
-      .onGet(
-        `https://api.openweathermap.org/data/2.5/onecall?lat=35&lon=135&exclude=current,minutely,hourly&appid=${forecastAPIKey}`,
-      )
-      .reply(200, serverResponse);
+  mock
+    .onGet(
+      /^https:\/\/api.openweathermap.org\/data\/2.5\/onecall\?lat=\d+(?:\.\d+)?&lon=\d+(?:\.\d+)?&exclude=current,minutely,hourly&appid=.*/,
+    )
+    .reply(200, mockResponse);
 
-    returnVal = (
-      <div css={scrollContainer}>
-        <WeekdayWeatherForecast location={{ latitude: 35, longitude: 135 }} />
-      </div>
-    );
-  } else {
-    returnVal = <p>APIキーの取得に失敗しました</p>;
-  }
-
-  return returnVal;
+  return (
+    <div css={scrollContainer}>
+      <WeekdayWeatherForecast location={{ latitude: 35, longitude: 135 }} />
+    </div>
+  );
 };

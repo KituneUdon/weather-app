@@ -62,9 +62,6 @@ type Response = {
 const TempratureLineChart: FC<Props> = ({ location }) => {
   const forecastAPIKey = process.env.REACT_APP_FORECAST_API_KEY;
 
-  // eslint-disable-next-line
-  console.log(process.env);
-
   const { data } = useQuery(
     `getDailyTemperature${location.latitude?.toString() ?? 'undefined'}${
       location.longitude?.toString() ?? 'undefined'

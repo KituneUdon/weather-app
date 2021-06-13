@@ -6,9 +6,8 @@ import MockAdapter from 'axios-mock-adapter';
 import TemperatureLineChart from './TemperatureLineChart';
 
 const queryClient = new QueryClient();
-const mock = new MockAdapter(axios);
 
-const serverResponse = {
+const mockResponse = {
   lat: 35,
   lon: 135,
   timezone: 'Asia/Tokyo',
@@ -1120,22 +1119,13 @@ export default {
 };
 
 export const Default: FC = () => {
-  const forecastAPIKey = process.env.REACT_APP_FORECAST_API_KEY;
-  let returnVal;
+  const mock = new MockAdapter(axios);
 
-  if (forecastAPIKey) {
-    mock
-      .onGet(
-        `https://api.openweathermap.org/data/2.5/onecall?lat=35&lon=135&exclude=current,minutely,daily,alerts&appid=${forecastAPIKey}`,
-      )
-      .reply(200, serverResponse);
+  mock
+    .onGet(
+      /^https:\/\/api.openweathermap.org\/data\/2.5\/onecall\?lat=\d+(?:\.\d+)?&lon=\d+(?:\.\d+)?&exclude=current,minutely,daily,alerts&appid=.*$/,
+    )
+    .reply(200, mockResponse);
 
-    returnVal = (
-      <TemperatureLineChart location={{ latitude: 35, longitude: 135 }} />
-    );
-  } else {
-    returnVal = <p>APIキーの取得に失敗しました</p>;
-  }
-
-  return returnVal;
+  return <TemperatureLineChart location={{ latitude: 35, longitude: 135 }} />;
 };
