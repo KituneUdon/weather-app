@@ -8,7 +8,7 @@ import TemperatureLineChart from './TemperatureLineChart';
 const queryClient = new QueryClient();
 const mock = new MockAdapter(axios);
 
-const serverResponse = {
+const mockResponse = {
   lat: 35,
   lon: 135,
   timezone: 'Asia/Tokyo',
@@ -1120,22 +1120,9 @@ export default {
 };
 
 export const Default: FC = () => {
-  const forecastAPIKey = process.env.REACT_APP_FORECAST_API_KEY;
-  let returnVal;
+  mock
+    .onGet(/^https:\/\/api.openweathermap.org\/data\/2.5\/onecall?.*$/)
+    .reply(200, mockResponse);
 
-  if (forecastAPIKey) {
-    mock
-      .onGet(
-        `https://api.openweathermap.org/data/2.5/onecall?lat=35&lon=135&exclude=current,minutely,daily,alerts&appid=${forecastAPIKey}`,
-      )
-      .reply(200, serverResponse);
-
-    returnVal = (
-      <TemperatureLineChart location={{ latitude: 35, longitude: 135 }} />
-    );
-  } else {
-    returnVal = <p>APIキーの取得に失敗しました</p>;
-  }
-
-  return returnVal;
+  return <TemperatureLineChart location={{ latitude: 35, longitude: 135 }} />;
 };
