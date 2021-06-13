@@ -8,7 +8,6 @@ import MockAdapter from 'axios-mock-adapter';
 import WeekdayWeatherForecast from './WeekdayWeatherForecast';
 
 const queryClient = new QueryClient();
-const mock = new MockAdapter(axios);
 
 const mockResponse = {
   lat: 35,
@@ -349,18 +348,30 @@ export default {
   ],
 };
 
-mock
-  .onGet(
-    /^https:\/\/api.openweathermap.org\/data\/2.5\/onecall\?lat=\d+(?:\.\d+)?&lon=\d+(?:\.\d+)?&exclude=current,minutely,hourly&appid=.*/,
-  )
-  .reply(200, mockResponse);
+export const Defualt: FC = () => {
+  const mock = new MockAdapter(axios);
 
-export const Defualt: FC = () => (
-  <WeekdayWeatherForecast location={{ latitude: 35, longitude: 135 }} />
-);
+  mock
+    .onGet(
+      /^https:\/\/api.openweathermap.org\/data\/2.5\/onecall\?lat=\d+(?:\.\d+)?&lon=\d+(?:\.\d+)?&exclude=current,minutely,hourly&appid=.*/,
+    )
+    .reply(200, mockResponse);
 
-export const Scroll: FC = () => (
-  <div css={scrollContainer}>
-    <WeekdayWeatherForecast location={{ latitude: 35, longitude: 135 }} />
-  </div>
-);
+  return <WeekdayWeatherForecast location={{ latitude: 35, longitude: 135 }} />;
+};
+
+export const Scroll: FC = () => {
+  const mock = new MockAdapter(axios);
+
+  mock
+    .onGet(
+      /^https:\/\/api.openweathermap.org\/data\/2.5\/onecall\?lat=\d+(?:\.\d+)?&lon=\d+(?:\.\d+)?&exclude=current,minutely,hourly&appid=.*/,
+    )
+    .reply(200, mockResponse);
+
+  return (
+    <div css={scrollContainer}>
+      <WeekdayWeatherForecast location={{ latitude: 35, longitude: 135 }} />
+    </div>
+  );
+};

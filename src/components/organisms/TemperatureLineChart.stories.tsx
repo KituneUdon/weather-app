@@ -6,7 +6,6 @@ import MockAdapter from 'axios-mock-adapter';
 import TemperatureLineChart from './TemperatureLineChart';
 
 const queryClient = new QueryClient();
-const mock = new MockAdapter(axios);
 
 const mockResponse = {
   lat: 35,
@@ -1120,6 +1119,8 @@ export default {
 };
 
 export const Default: FC = () => {
+  const mock = new MockAdapter(axios);
+
   mock
     .onGet(
       /^https:\/\/api.openweathermap.org\/data\/2.5\/onecall\?lat=\d+(?:\.\d+)?&lon=\d+(?:\.\d+)?&exclude=current,minutely,daily,alerts&appid=.*$/,

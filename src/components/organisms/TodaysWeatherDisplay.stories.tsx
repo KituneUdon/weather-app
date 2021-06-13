@@ -6,7 +6,6 @@ import MockAdapter from 'axios-mock-adapter';
 import TodaysWeatherDisplay from './TodaysWeatherDisplay';
 
 const queryClient = new QueryClient();
-const mock = new MockAdapter(axios);
 
 const mockResponse = {
   coord: { lon: 135, lat: 35 },
@@ -51,12 +50,14 @@ export default {
   ],
 };
 
-mock
-  .onGet(
-    /^https:\/\/api.openweathermap.org\/data\/2.5\/weather\?lat=\d+(?:\.\d+)?&lon=\d+(?:\.\d+)?&appid=.*$/,
-  )
-  .reply(200, mockResponse);
+export const Default: FC = () => {
+  const mock = new MockAdapter(axios);
 
-export const Default: FC = () => (
-  <TodaysWeatherDisplay location={{ latitude: 35, longitude: 135 }} />
-);
+  mock
+    .onGet(
+      /^https:\/\/api.openweathermap.org\/data\/2.5\/weather\?lat=\d+(?:\.\d+)?&lon=\d+(?:\.\d+)?&appid=.*$/,
+    )
+    .reply(200, mockResponse);
+
+  return <TodaysWeatherDisplay location={{ latitude: 35, longitude: 135 }} />;
+};
