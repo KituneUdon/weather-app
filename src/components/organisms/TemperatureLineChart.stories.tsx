@@ -1121,7 +1121,9 @@ export default {
 
 export const Default: FC = () => {
   mock
-    .onGet(/^https:\/\/api.openweathermap.org\/data\/2.5\/onecall?.*$/)
+    .onGet(
+      /^https:\/\/api.openweathermap.org\/data\/2.5\/onecall\?lat=\d+(?:\.\d+)?&lon=\d+(?:\.\d+)?&exclude=current,minutely,daily,alerts&appid=.*$/,
+    )
     .reply(200, mockResponse);
 
   return <TemperatureLineChart location={{ latitude: 35, longitude: 135 }} />;
