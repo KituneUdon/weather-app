@@ -359,7 +359,7 @@ export const Defualt: FC = () => {
 
 export const Scroll: FC = () => {
   mock
-    .onGet(/https:\/\/api.openweathermap.org\/data\/2.5\/onecall/)
+    .onGet(/^https:\/\/api.openweathermap.org\/data\/2.5\/onecall.*$/)
     .reply(200, mockResponse);
 
   return (
