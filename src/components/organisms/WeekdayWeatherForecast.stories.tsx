@@ -349,22 +349,18 @@ export default {
   ],
 };
 
-export const Defualt: FC = () => {
-  mock
-    .onGet(/https:\/\/api.openweathermap.org\/data\/2.5\/onecall/)
-    .reply(200, mockResponse);
+mock
+  .onGet(
+    /^https:\/\/api.openweathermap.org\/data\/2.5\/onecall\?lat=\d+(?:\.\d+)?&lon=\d+(?:\.\d+)?&exclude=current,minutely,hourly&appid=.*/,
+  )
+  .reply(200, mockResponse);
 
-  return <WeekdayWeatherForecast location={{ latitude: 35, longitude: 135 }} />;
-};
+export const Defualt: FC = () => (
+  <WeekdayWeatherForecast location={{ latitude: 35, longitude: 135 }} />
+);
 
-export const Scroll: FC = () => {
-  mock
-    .onGet(/^https:\/\/api.openweathermap.org\/data\/2.5\/onecall.*$/)
-    .reply(200, mockResponse);
-
-  return (
-    <div css={scrollContainer}>
-      <WeekdayWeatherForecast location={{ latitude: 35, longitude: 135 }} />
-    </div>
-  );
-};
+export const Scroll: FC = () => (
+  <div css={scrollContainer}>
+    <WeekdayWeatherForecast location={{ latitude: 35, longitude: 135 }} />
+  </div>
+);
