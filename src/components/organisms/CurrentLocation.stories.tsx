@@ -8,9 +8,7 @@ import CurrentLocation from './CurrentLocation';
 
 const queryClient = new QueryClient();
 
-const mock = new MockAdapter(axios);
-
-const serverResponse = {
+const mockResponse = {
   response: {
     location: [
       {
@@ -28,7 +26,7 @@ const serverResponse = {
   },
 };
 
-const faitalServerResponse = {
+const faitalMockResponse = {
   response: { error: "Cities around x:'1000.0', y:'35.0' do not exist." },
 };
 
@@ -43,21 +41,25 @@ export default {
 };
 
 export const Default: FC = () => {
+  const mock = new MockAdapter(axios);
+
   mock
     .onGet(
-      'https://geoapi.heartrails.com/api/json?method=searchByGeoLocation&y=35&x=135',
+      /https:\/\/geoapi.heartrails.com\/api\/json\?method=searchByGeoLocation&y=\d+(?:\.\d+)?&x=\d+(?:\.\d+)?/,
     )
-    .reply(200, serverResponse);
+    .reply(200, mockResponse);
 
   return <CurrentLocation location={{ latitude: 35, longitude: 135 }} />;
 };
 
 export const Fatail: FC = () => {
+  const mock = new MockAdapter(axios);
+
   mock
     .onGet(
-      'https://geoapi.heartrails.com/api/json?method=searchByGeoLocation&y=35&x=135',
+      /https:\/\/geoapi.heartrails.com\/api\/json\?method=searchByGeoLocation&y=\d+(?:\.\d+)?&x=\d+(?:\.\d+)?/,
     )
-    .reply(200, faitalServerResponse);
+    .reply(200, faitalMockResponse);
 
   return <CurrentLocation location={{ latitude: 35, longitude: 135 }} />;
 };
