@@ -24,3 +24,5 @@ yarn-error.log*
 
 # add 
 .env
+build-storybook.log
+storybook-static/
