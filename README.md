@@ -3,8 +3,8 @@
 
 [動くアプリはこちら](https://yudai-nakajima.github.io/weather-app/)
 ## 動作環境
-chrome
-firefox
+- chrome
+- firefox
 
 # 作成目的
 - Reactの学習
