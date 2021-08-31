@@ -1,7 +1,7 @@
 # 概要
 利用者の位置情報を取得し、その位置の天気予報を表示するアプリ
 
-[動くアプリはこちら](https://kituneudon.github.io/weather-app/)
+[動くアプリはこちら](https://yudai-nakajima.github.io/weather-app/)
 
 # 作成目的
 - Reactの学習
